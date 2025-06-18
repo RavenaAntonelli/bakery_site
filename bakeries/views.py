@@ -1,9 +1,9 @@
 from django.shortcuts import render
-# from django.http import HttpResponse
+
+from .models import Bakery
 
 def index(request):
-    # return HttpResponse("Hello, world. Welcome to our bakery. Ravena")
-
-    return render(request, "index.html")
-
-# Create your views here.
+    context = {
+        "bakeries": Bakery.objects.all()
+    }
+    return render(request, "index.html", context)
