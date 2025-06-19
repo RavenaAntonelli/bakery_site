@@ -34,8 +34,15 @@
                   <li class="list-group-item">{{ item.name }} - ${{ item.price }}</li>
                 {% endfor %}
               </ul>
+              <div class="text-center my-4">
+                <a href="{% url 'indexcopy' bakery.pk %}" class="btn btn-danger btn-lg">
+                  Ver Página Alternativa
+                </a>
+              </div>
             </div>
           </div>
+
+
         </div>
       {% empty %}
         <p>No bakeries found. Add some via the admin panel!</p>

@@ -16,16 +16,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-
-urlpatterns = [
-    path('admin/', admin.site.urls),
-]
-
 from django.urls import path, include
-from bakeries.views import index
+from bakeries.views import index, indexcopy
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', index),
+    path('', index, name='index'),  # agora o caminho raiz vai para a view "index"
+    path('bakery/<int:pk>/', indexcopy, name='indexcopy')  # ✅ Nova rota dinâmica  # rota alternativa
 ]
